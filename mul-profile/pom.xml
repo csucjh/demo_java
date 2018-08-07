@@ -1,0 +1,89 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>test.cjh</groupId>
+		<artifactId>study</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+	<artifactId>mul-profile</artifactId>
+
+	<!-- 真实项目最好放在父模块的pom.xml中 -->
+	<profiles>
+		<profile>
+			<id>dev</id>
+			<properties>
+				<!-- 数据库相关配置 -->
+				<mysql.jdbc.url>192.168.1.224:3306/cd_pro</mysql.jdbc.url>
+				<mysql.jdbc.username>root</mysql.jdbc.username>
+				<mysql.jdbc.password>xxxxxx</mysql.jdbc.password>
+				<!-- 环境配置 -->
+				<application.context.ip>http://192.168.1.224/</application.context.ip>
+				<site.id>510100</site.id>
+				<!-- 支付相关配置 -->
+				<revisa.pay.service.id>123456</revisa.pay.service.id>
+				<!--LOG4J日志级别 -->
+				<log4j.log.level>debug</log4j.log.level>
+				<log4j.logfile.path>D:/logs/cd_pro.log</log4j.logfile.path>
+				<memorycache.url>192.168.1.224:11211</memorycache.url>
+			</properties>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+		</profile>
+		<profile>
+			<id>test</id>
+			<properties>
+				<!-- 数据库相关配置 -->
+				<mysql.jdbc.url>10.150.39.21:3306/cd_pro</mysql.jdbc.url>
+				<mysql.jdbc.username>root</mysql.jdbc.username>
+				<mysql.jdbc.password>xxxxxx</mysql.jdbc.password>
+				<!-- 环境配置 -->
+				<application.context.ip>http://uat.zaichengdu.com/</application.context.ip>
+				<revisa.pay.site.id>510100</revisa.pay.site.id>
+				<!-- 支付相关配置 -->
+				<revisa.pay.service.id>123456</revisa.pay.service.id>
+				<!--LOG4J日志级别 -->
+				<log4j.log.level>info</log4j.log.level>
+				<log4j.logfile.path>/data/logs/cd_pro.log</log4j.logfile.path>
+				<memorycache.url>10.150.38.106:11211</memorycache.url>
+			</properties>
+		</profile>
+	</profiles>
+
+	<build>
+		<!-- 处理src/main/resources目录 -->
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<!-- **/*.properties 是指包括根目录或子目录所有properties类型的文件 -->
+				<includes>
+					<include>**/*.properties</include>
+					<include>**/*.xml</include>
+				</includes>
+				<!-- 排除dev、test目录下的文件 -->
+				<excludes>
+					<exclude>dev/*</exclude>
+					<exclude>test/*</exclude>
+				</excludes>
+				<filtering>true</filtering>
+			</resource>
+		</resources>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>2.6</version>
+				<configuration>
+					<webResources>
+						<!-- 处理src/main/webapp/WEB-INF目录下的文件，其实主要是web.xml -->
+						<resource>
+							<directory>${basedir}/src/main/webapp/WEB-INF</directory>
+							<filtering>true</filtering>
+							<targetPath>WEB-INF</targetPath>
+						</resource>
+					</webResources>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>

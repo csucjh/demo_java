@@ -19,17 +19,18 @@ public class TestTypeInfo {
     // 白名单使用示例
     {
         //开启自动类型支持
-        ParserConfig.getGlobalInstance().setAutoTypeSupport(true);
+//        ParserConfig.getGlobalInstance().setAutoTypeSupport(true);
         // 添加全局白名单
-        ParserConfig.getGlobalInstance().addAccept("org.springframework.");
+//        ParserConfig.getGlobalInstance().addAccept("org.springframework.");
         // 自定义类型信息key，默认@type
-        JSON.setDefaultTypeKey("@class");
+//        JSON.setDefaultTypeKey("@class");
     }
 
     public static void main(String[] args) {
 //        testUser();
 //        testMap();
         testMapNewConfig();
+//        testMapProperties();
     }
 
     /**
@@ -38,8 +39,8 @@ public class TestTypeInfo {
     public static void testMapNewConfig() {
         // 使用非全局的ParserConfig
         ParserConfig defaultRedisConfig = new ParserConfig();
-        defaultRedisConfig.setAutoTypeSupport(true);
-        defaultRedisConfig.addAccept("org.springframework.");
+//        defaultRedisConfig.setAutoTypeSupport(true);
+//        defaultRedisConfig.addAccept("org.springframework.");
         // 自定义类型信息key，默认@type
         JSON.setDefaultTypeKey("@class");
 
@@ -76,7 +77,36 @@ public class TestTypeInfo {
 
         // 1、开启全局自动类型支持
         // 这种方式会先看白名单(Accept)再看黑名单(Deny)；增加到白名单即可
-        ParserConfig.getGlobalInstance().setAutoTypeSupport(true);
+//        ParserConfig.getGlobalInstance().setAutoTypeSupport(true);
+//        FlashMap user1 = (FlashMap) JSON.parse(json);
+//        System.out.println(user1);
+
+
+        // 2、序列化是通过Feature指定支持自动类型
+        // 这种方式会先看黑名单(Deny)再看白名单(Accept)；因此不开启全局自动类型支持，即使增加了白名单也不能反序列化
+        FlashMap user2 = (FlashMap) JSON.parse(json, Feature.SupportAutoType);
+        System.out.println(user2);
+    }
+
+
+    /**
+     * 基于fastjson.properties来控制
+     */
+    public static void testMapProperties() {
+        // 添加全局白名单
+        // 自定义类型信息key，默认@type
+        JSON.setDefaultTypeKey("@class");
+
+        Map<String, Object> user = new FlashMap();
+        user.put("name", "姓名");
+        user.put("age", "12");
+        user.put("features", Arrays.asList("aaaa", "bbbb", "ccc"));
+
+        String json = JSON.toJSONString(user, SerializerFeature.WriteClassName);
+        System.out.println(json);
+
+        // 1、开启全局自动类型支持
+        // 这种方式会先看白名单(Accept)再看黑名单(Deny)；增加到白名单即可
         FlashMap user1 = (FlashMap) JSON.parse(json);
         System.out.println(user1);
 
@@ -86,7 +116,6 @@ public class TestTypeInfo {
         FlashMap user2 = (FlashMap) JSON.parse(json, Feature.SupportAutoType);
         System.out.println(user2);
     }
-
 
     /**
      * 发现自定义的User类既不在黑名单也不再白名单，会直接在类路径下查找

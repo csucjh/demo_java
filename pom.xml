@@ -16,7 +16,6 @@
 		<module>zkclient</module>
 		<module>security</module>
         <module>proxytwo</module>
-        <module>thread</module>
         <module>xml</module>
         <module>javabase</module>
         <module>json</module>
@@ -24,7 +23,7 @@
 
 	<properties>
 		<!-- project -->
-		<jdk.version>1.6</jdk.version>
+		<jdk.version>1.8</jdk.version>
 		<project.encoding>UTF-8</project.encoding>
 		<project.version>1.0.0-SNAPSHOT</project.version>
 		<maven.test.skip>true</maven.test.skip> <!-- 执行打包命令时跳过单元测试 -->

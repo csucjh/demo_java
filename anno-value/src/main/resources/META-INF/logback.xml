@@ -27,7 +27,7 @@
 				%logger{50}表示输出日志的包名
 				%msg：日志消息，%n是换行符
 			-->
-			<pattern>[%thread] %-5level %logger{50} - %msg%n</pattern>
+			<pattern>[%concurrence.thread] %-5level %logger{50} - %msg%n</pattern>
 		</layout>
 	</appender>
 

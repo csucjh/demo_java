@@ -8,6 +8,6 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd">
 
 	<!-- 配置包扫描，Spring扫描所有包(其实可以排除Controller，因为SpringMVC会扫描) -->
-	<!-- <context:component-scan base-package="test.cjh.service" /> -->
+	<!-- <context:component-scan base-package="filter.cjh.service" /> -->
 	<context:component-scan base-package="test.cjh.*" />
 </beans>  

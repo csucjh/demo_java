@@ -1,0 +1,8 @@
+Java 的并行 API 演变历程基本如下：
+1.0-1.4 中的 java.lang.Thread
+5.0 中的 java.util.concurrent
+6.0 中的 Phasers 等
+7.0 中的 Fork/Join 框架
+8.0 中的 parallelStream()来启动并行流式处理
+    parallelStream()本质上基于java7的Fork-Join框架实现，其默认的线程数为宿主机的内核数
+    Stream 的并行操作依赖于 Java7 中引入的 Fork/Join 框架（JSR166y）来拆分任务和加速处理过程

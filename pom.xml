@@ -19,6 +19,7 @@
         <module>xml</module>
         <module>javabase</module>
         <module>json</module>
+        <module>http</module>
     </modules>
 
 	<properties>
@@ -59,7 +60,7 @@
 		<commons.httpclient.version>3.1</commons.httpclient.version>
 		<javax.servlet-api.version>3.1.0</javax.servlet-api.version>
 
-		<!-- test -->
+		<!-- filter -->
 		<junit.version>4.12</junit.version>
 	</properties>
 
@@ -245,7 +246,7 @@
 
 
 
-			<!-- test -->
+			<!-- filter -->
 			<dependency>
 				<groupId>org.springframework</groupId>
 				<artifactId>spring-test</artifactId>

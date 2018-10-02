@@ -20,6 +20,7 @@
         <module>javabase</module>
         <module>json</module>
         <module>http</module>
+        <module>jar</module>
     </modules>
 
 	<properties>
@@ -320,100 +321,20 @@
 					<overwrite>true</overwrite>
 				</configuration>
 			</plugin>
-
-			<!-- <plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-resources-plugin</artifactId>
-				<executions>
-				<execution>
-				<id>copy-resources</id>
-				<phase>package</phase>
-				<goals>
-				<goal>copy-resources</goal>
-				</goals>
-				<configuration>
-				<encoding>UTF-8</encoding>
-				<outputDirectory> ${project.build.directory}/conf </outputDirectory>
-				<resources>
-				<resource>
-				<directory>src/main/resources/</directory>
-				</resource>
-				</resources>
-				</configuration>
-				</execution>
-				</executions>
-				</plugin>
-
-				<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-dependency-plugin</artifactId>
-				<executions>
-				<execution>
-				<id>copy-dependencies</id>
-				<phase>prepare-package</phase>
-				<goals>
-				<goal>copy-dependencies</goal>
-				</goals>
-				<configuration>
-				<outputDirectory>${project.build.directory}/lib</outputDirectory>
-				<overWriteReleases>false</overWriteReleases>
-				<overWriteSnapshots>false</overWriteSnapshots>
-				<overWriteIfNewer>true</overWriteIfNewer>
-				</configuration>
-				</execution>
-				</executions>
-				</plugin>
-
-
-				<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-jar-plugin</artifactId>
-				<configuration>
-				<archive>
-				<manifest>
-				<addClasspath>true</addClasspath>
-				<classpathPrefix>lib/</classpathPrefix>
-				<mainClass>主类全名</mainClass>
-				</manifest>
-				<manifestEntries>
-				<Class-Path>./conf/</Class-Path>
-				</manifestEntries>
-				</archive>
-				</configuration>
-				</plugin>
-
-				<plugin>
-				<groupId>org.mortbay.jetty</groupId>
-				<artifactId>maven-jetty-plugin</artifactId>
-				<version>6.1.26</version>
-				<configuration>
-				<scanIntervalSeconds>3</scanIntervalSeconds>
-				<contextPath>/ScheduledTask</contextPath>
-				<webAppSourceDirectory>src/main/webapp</webAppSourceDirectory>
-				<connectors>
-				<connector implementation="org.mortbay.jetty.nio.SelectChannelConnector">
-				<port>8082</port>
-				<maxIdleTime>60000</maxIdleTime>
-				</connector>
-				</connectors>
-				</configuration>
-				</plugin> -->
 		</plugins>
 	</build>
-
-
 
 	<!-- 执行mvn:deploy部署命令时，将本地有仓库没有的jar部署到仓库中 -->
 	<distributionManagement>
 		<repository>
 			<id>deployRelease</id>
 			<name>Local Nexus Repository</name>
-			<url>http://10.2.1.21:9081/content/repositories/releases</url>
+			<url>http://ip:port/content/repositories/releases</url>
 		</repository>
 		<snapshotRepository>
 			<id>deploySnapshot</id>
 			<name>Local Nexus Repository</name>
-			<url>http://10.2.1.21:9081/content/repositories/snapshots/</url>
+			<url>http://ip:port/content/repositories/snapshots/</url>
 		</snapshotRepository>
 	</distributionManagement>
 </project>

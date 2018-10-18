@@ -21,7 +21,8 @@
         <module>json</module>
         <module>http</module>
         <module>jar</module>
-    </modules>
+		<module>tomcat</module>
+	</modules>
 
 	<properties>
 		<!-- project -->

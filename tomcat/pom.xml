@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>study</artifactId>
+        <groupId>test.cjh</groupId>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>tomcat</artifactId>
+
+
+    <dependencies>
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>servlet-api</artifactId>
+            <version>2.5</version>
+        </dependency>
+
+        <!-- 引入一下 Tomcat相关Jar 的目的是为了学习:How Tomcat Works这本书 -->
+        <dependency>
+            <groupId>tomcat</groupId>
+            <artifactId>catalina</artifactId>
+            <version>4.1.9</version>
+        </dependency>
+
+        <dependency>
+            <groupId>tomcat</groupId>
+            <artifactId>bootstrap</artifactId>
+            <version>4.0.6</version>
+        </dependency>
+
+        <dependency>
+            <groupId>tomcat</groupId>
+            <artifactId>tomcat-util</artifactId>
+            <version>4.0.6</version>
+        </dependency>
+
+        <dependency>
+            <groupId>tomcat</groupId>
+            <artifactId>naming-resources</artifactId>
+            <version>5.5.12</version>
+        </dependency>
+        <dependency>
+            <groupId>tomcat</groupId>
+            <artifactId>naming-common</artifactId>
+            <version>5.0.28</version>
+        </dependency>
+
+        <!--用Apache的commons-modeler来辅助开发JMX-->
+        <dependency>
+            <groupId>commons-modeler</groupId>
+            <artifactId>commons-modeler</artifactId>
+            <version>2.0.1</version>
+        </dependency>
+
+        <!--ContextConfig类初始化会加载jsp-api包的资源createTldDigester-->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>jsp-api</artifactId>
+            <version>2.0</version>
+        </dependency>
+    </dependencies>
+</project>

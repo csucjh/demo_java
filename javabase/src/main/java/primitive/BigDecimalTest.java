@@ -24,10 +24,10 @@ public class BigDecimalTest {
 
     /**
      * 除法  (被除数 ÷ 除数 = 商)
-     *
+
      * @param dividend 被除数
      * @param divisor  除数
-     * @return
+     * @returnf
      */
     public static BigDecimal divide(float dividend, int divisor) {
         // 保留两位小数

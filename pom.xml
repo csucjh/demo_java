@@ -21,8 +21,9 @@
         <module>json</module>
         <module>http</module>
         <module>jar</module>
-		<module>tomcat</module>
-	</modules>
+		<module>tomcat4</module>
+        <module>tomcat8</module>
+    </modules>
 
 	<properties>
 		<!-- project -->
@@ -330,12 +331,12 @@
 		<repository>
 			<id>deployRelease</id>
 			<name>Local Nexus Repository</name>
-			<url>http://ip:port/content/repositories/releases</url>
+			<url>http://nexus.pay.56qq.cn:9081/content/repositories/releases</url>
 		</repository>
 		<snapshotRepository>
 			<id>deploySnapshot</id>
 			<name>Local Nexus Repository</name>
-			<url>http://ip:port/content/repositories/snapshots/</url>
+			<url>http://nexus.pay.56qq.cn:9081/content/repositories/snapshots/</url>
 		</snapshotRepository>
 	</distributionManagement>
 </project>

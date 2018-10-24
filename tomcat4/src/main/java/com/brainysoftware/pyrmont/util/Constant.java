@@ -4,7 +4,7 @@ import java.io.File;
 
 public interface Constant {
 
-    String CATALINA_BASE = System.getProperty("user.dir") + File.separator + "tomcat";
+    String CATALINA_BASE = System.getProperty("user.dir") + File.separator + "tomcat4";
 
     String WEB_ROOT = CATALINA_BASE + File.separator + "webapps\\context";
 

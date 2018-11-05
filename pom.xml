@@ -23,6 +23,7 @@
         <module>jar</module>
 		<module>tomcat4</module>
         <module>tomcat8</module>
+        <module>concurrency</module>
     </modules>
 
 	<properties>
@@ -331,12 +332,12 @@
 		<repository>
 			<id>deployRelease</id>
 			<name>Local Nexus Repository</name>
-			<url>http://nexus.pay.56qq.cn:9081/content/repositories/releases</url>
+			<url>http://ip:port/content/repositories/releases</url>
 		</repository>
 		<snapshotRepository>
 			<id>deploySnapshot</id>
 			<name>Local Nexus Repository</name>
-			<url>http://nexus.pay.56qq.cn:9081/content/repositories/snapshots/</url>
+			<url>http://ip:port/content/repositories/snapshots/</url>
 		</snapshotRepository>
 	</distributionManagement>
 </project>

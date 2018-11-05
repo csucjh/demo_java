@@ -1,4 +1,6 @@
-import enums.AlgorithmEnum;
+package algorithm;
+
+import algorithm.enums.AlgorithmEnum;
 import org.apache.commons.codec.digest.DigestUtils;
 
 import java.io.File;

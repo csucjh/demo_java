@@ -1,4 +1,4 @@
-package rsa;
+package algorithm.rsa;
 
 import javax.crypto.Cipher;
 import java.io.FileInputStream;

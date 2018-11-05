@@ -5,7 +5,13 @@ import java.math.BigDecimal;
 public class BigDecimalTest {
 
     public static void main(String[] args) {
-        divide();
+//        divide();
+        scale();
+    }
+
+    public static void scale() {
+        BigDecimal decimal = new BigDecimal(10.246);
+        System.out.println(decimal.setScale(2, BigDecimal.ROUND_DOWN).toString());
     }
 
     public static void divide() {
@@ -24,7 +30,7 @@ public class BigDecimalTest {
 
     /**
      * 除法  (被除数 ÷ 除数 = 商)
-
+     *
      * @param dividend 被除数
      * @param divisor  除数
      * @returnf

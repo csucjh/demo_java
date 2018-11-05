@@ -1,4 +1,4 @@
-package rsa;
+package algorithm.rsa;
 
 import java.math.BigDecimal;
 

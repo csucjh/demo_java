@@ -1,4 +1,4 @@
-package enums;
+package algorithm.enums;
 
 public enum AlgorithmEnum {
     SHA_1("SHA-1"),

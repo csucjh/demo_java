@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    用文件名作为上下文path，而非path属性的配置值
+    http://localhost:8080/ 成功，http://localhost:8080/test 则失败
+-->
+<Context path="test" docBase="D:\tomcat\apache-tomcat-8.5.0\webapps\ROOT"/>
+

@@ -1,23 +1,37 @@
-<?xml version='1.0' encoding='utf-8'?>                                                                                                                                                   
-<Server port="8005" shutdown="SHUTDOWN">                                                                                                                                                 
+<?xml version='1.0' encoding='utf-8'?>
+<Server port="8005" shutdown="SHUTDOWN">
     <Listener className="org.apache.catalina.startup.VersionLoggerListener"/>
     <!--8.5版本的tomcat要使用AprConnector必须配置useAprConnector="true"-->
     <Listener className="org.apache.catalina.core.AprLifecycleListener" SSLEngine="off" useAprConnector="true"/>
-    <Listener className="org.apache.catalina.core.JreMemoryLeakPreventionListener"/>                                                                                                     
-    <Listener className="org.apache.catalina.mbeans.GlobalResourcesLifecycleListener"/>                                                                                                  
-    <Listener className="org.apache.catalina.core.ThreadLocalLeakPreventionListener"/>                                                                                                   
-                                                                                                                                                                                         
-    <GlobalNamingResources>                                                                                                                                                              
-        <Resource name="UserDatabase" auth="Container"                                                                                                                                   
-                  type="org.apache.catalina.UserDatabase"                                                                                                                                
-                  description="User database that can be updated and saved"                                                                                                              
-                  factory="org.apache.catalina.users.MemoryUserDatabaseFactory"                                                                                                          
-                  pathname="conf/tomcat-users.xml"/>                                                                                                                                     
-    </GlobalNamingResources>                                                                                                                                                             
-                                                                                                                                                                                         
+    <Listener className="org.apache.catalina.core.JreMemoryLeakPreventionListener"/>
+    <Listener className="org.apache.catalina.mbeans.GlobalResourcesLifecycleListener"/>
+    <Listener className="org.apache.catalina.core.ThreadLocalLeakPreventionListener"/>
+
+    <GlobalNamingResources>
+        <Resource name="UserDatabase" auth="Container"
+                  type="org.apache.catalina.UserDatabase"
+                  description="User database that can be updated and saved"
+                  factory="org.apache.catalina.users.MemoryUserDatabaseFactory"
+                  pathname="conf/tomcat-users.xml"/>
+    </GlobalNamingResources>
+
     <Service name="Catalina">
 
-        <Executor name="tomcatThreadPool" namePrefix="catalina-exec-" maxThreads="1200" minSpareThreads="64"/>
+        <!--
+            使用StandardThreadExecutor生命周期组件来管理任务线程池
+            默认的最大只有200线程,使用组件可以自己配置，强烈推荐
+            maxThreads:最大线程
+            minSpareThreads:核心线程数
+            maxIdleTime:空闲等待超时时间(ms)
+            maxQueueSize:使用有界的阻塞队列，避免生产者与消费者速度不匹配时不会无限扩展队列长度，造成OOM
+        -->
+        <Executor name="tomcatThreadPool"
+                  namePrefix="catalina-exec-"
+                  maxThreads="1200"
+                  minSpareThreads="64"
+                  maxIdleTime="60000"
+                  maxQueueSize="10000"
+        />
 
         <!--
             如果强制指定apr协议，如下，则AprLifecycleListener可以不用配置useAprConnector属性
@@ -27,18 +41,23 @@
                    port="8080"
                    protocol="HTTP/1.1"
                    connectionTimeout="20000"
-                   enableLookups="false"                                                                                                                                                 
-                   maxKeepAliveRequests="5000" acceptCount="5000" URIEncoding="UTF-8" bindOnInit="false"/>
+                   maxKeepAliveRequests="5000"
+                   maxConnections="2000"
+                   acceptCount="5000"
+                   URIEncoding="UTF-8"
+                   enableLookups="false"
+                   bindOnInit="false"/>
 
         <Engine name="Catalina" defaultHost="localhost">
-                                                                                                                                                                                         
-            <Realm className="org.apache.catalina.realm.LockOutRealm">                                                                                                                   
+
+            <Realm className="org.apache.catalina.realm.LockOutRealm">
                 <Realm className="org.apache.catalina.realm.UserDatabaseRealm" resourceName="UserDatabase"/>
-            </Realm>                                                                                                                                                                     
-                                                                                                                                                                                         
-            <Host name="localhost" appBase="webapps"  unpackWARs="true" autoDeploy="true" xmlBase="webapps">
-                  <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs" pattern="%h %l %u %t &quot;%r&quot; %s %b %D" prefix="localhost_access_log" suffix=".txt" />                                                                                                                                                                       
-            </Host>                                                                                                                                                                      
-        </Engine>                                                                                                                                                                        
-    </Service>                                                                                                                                                                           
+            </Realm>
+
+            <Host name="localhost" appBase="webapps" unpackWARs="true" autoDeploy="true" xmlBase="webapps">
+                <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs" pattern="%h %l %u %t &quot;%r&quot; %s %b %D" prefix="localhost_access_log" suffix=".txt"/>
+            </Host>
+
+        </Engine>
+    </Service>
 </Server>

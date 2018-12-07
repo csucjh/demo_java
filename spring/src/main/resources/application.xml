@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns="http://www.springframework.org/schema/beans" xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd"
+       default-autowire="byName">
+
+    <bean id="messageService" class="com.csu.spring.impl.MessageServiceImpl"/>
+
+    <!--测试bean初始化-->
+    <bean id="beanInitService" class="com.csu.spring.impl.BeanInitServiceImpl" init-method="initMethod"/>
+
+    <!--lookup-method，Lookup注解替代-->
+    <bean id="commandManager" class="com.csu.spring.lookup.CommandManager">
+        <lookup-method name="createCommand" bean="asyncCommand"/>
+    </bean>
+
+    <!--replaced-method，没有注解替代-->
+    <bean id="myValueCalculator" class="com.csu.spring.replaced.MyValueCalculator">
+        <!-- 定义 computeValue 这个方法要被替换掉 -->
+        <replaced-method name="computeValue" replacer="replacementComputeValue">
+            <!--arg-type不是必须的，除非存在方法重载-->
+            <arg-type>String</arg-type>
+            <arg-type>Long</arg-type>
+        </replaced-method>
+    </bean>
+
+    <context:component-scan base-package="com.csu.spring.*"/>
+
+    <aop:aspectj-autoproxy/>
+</beans>

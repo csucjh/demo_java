@@ -1,7 +1,5 @@
-package com.csu.spring.impl;
+package com.csu.spring.init;
 
-import com.csu.spring.BeanInitService;
-import com.csu.spring.MessageService;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -13,7 +11,7 @@ import javax.annotation.PostConstruct;
 public class BeanInitServiceImpl implements BeanInitService, InitializingBean {
 
     @Autowired
-    private MessageService messageService;
+    private BeanInitService beanInitService;
 
     @PostConstruct
     public void init() {
@@ -27,5 +25,9 @@ public class BeanInitServiceImpl implements BeanInitService, InitializingBean {
 
     public void initMethod() {
         System.out.println("init-method");
+    }
+
+    public BeanInitService getThis() {
+        return beanInitService;
     }
 }

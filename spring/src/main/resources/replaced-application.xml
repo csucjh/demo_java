@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns="http://www.springframework.org/schema/beans" xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd"
+       default-autowire="byName">
+
+    <!--replaced-method，没有注解替代-->
+    <bean id="myValueCalculator" class="com.csu.spring.replaced.MyValueCalculator">
+        <!-- 定义 computeValue 这个方法要被替换掉 -->
+        <replaced-method name="computeValue" replacer="replacementComputeValue">
+            <!--arg-type不是必须的，除非存在方法重载-->
+            <arg-type>String</arg-type>
+            <arg-type>Long</arg-type>
+        </replaced-method>
+    </bean>
+
+    <context:component-scan base-package="com.csu.spring.replaced"/>
+</beans>

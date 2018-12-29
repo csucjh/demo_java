@@ -27,6 +27,7 @@
         <module>advance</module>
         <module>spring</module>
         <module>mybatis</module>
+        <module>lombok</module>
     </modules>
 
     <properties>

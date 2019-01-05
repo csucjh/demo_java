@@ -18,7 +18,7 @@ import java.io.IOException;
 public class TestTryResource {
 
     public static void main(String[] args) {
-        try (FileInputStream is = new FileInputStream(new File("test"))) {
+        try (FileInputStream is = new FileInputStream(new File("distribute"))) {
             System.out.println(is.read());
         } catch (IOException e) {
             throw new RuntimeException(e.getMessage(), e);

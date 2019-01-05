@@ -1,4 +1,4 @@
-package fastjson;
+package fastjson.type;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.parser.Feature;

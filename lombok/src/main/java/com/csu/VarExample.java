@@ -8,7 +8,7 @@ import java.util.HashMap;
 /**
  * var注解变量是非final类型
  * <p>
- * lombok.var.flagUsage = ALLOW
+ * 由于需要配置lombok.var.flagUsage = ALLOW，而且目前版本还在Experimental包中，不建议使用
  */
 public class VarExample {
 

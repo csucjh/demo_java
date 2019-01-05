@@ -22,7 +22,7 @@ public class TestFunctional {
     }
 
     public static void driver2(Vehicle vehicle) {
-        vehicle.driver("test");
+        vehicle.driver("distribute");
         vehicle.oil(1);
         vehicle.cleaning(0);
     }

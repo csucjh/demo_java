@@ -9,7 +9,7 @@ import net.jcip.examples.SemaphoreBoundedBuffer;
 /**
  * PutTakeTest
  * <p/>
- * Producer-consumer test program for BoundedBuffer
+ * Producer-consumer distribute program for BoundedBuffer
  *
  * @author Brian Goetz and Tim Peierls
  */

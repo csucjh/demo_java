@@ -12,7 +12,7 @@
     <!--
     执行如下两条指令，看target下jdbc.properties中的配置值替换
     mvn clean package -P dev -f mul-profile/pom.xml
-    mvn clean package -P test -f mul-profile/pom.xml
+    mvn clean package -P distribute -f mul-profile/pom.xml
     -->
     <profiles>
         <profile>

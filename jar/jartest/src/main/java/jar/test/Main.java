@@ -5,7 +5,7 @@ import java.util.ResourceBundle;
 
 public class Main {
     public static void main(String[] args) {
-        ResourceBundle resourceBundle = ResourceBundle.getBundle("test");
+        ResourceBundle resourceBundle = ResourceBundle.getBundle("distribute");
 
         Enumeration<String> enumerations = resourceBundle.getKeys();
         while (enumerations.hasMoreElements()) {

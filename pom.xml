@@ -32,6 +32,7 @@
         <module>guava</module>
         <module>hessian</module>
         <module>protobuf</module>
+        <module>retrofit</module>
     </modules>
 
     <properties>
@@ -172,6 +173,12 @@
                 <scope>import</scope>
             </dependency>
 
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>1.16.20</version>
+                <scope>provided</scope>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 

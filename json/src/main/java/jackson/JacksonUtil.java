@@ -2,7 +2,6 @@ package jackson;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.sun.xml.internal.ws.encoding.soap.SerializationException;
 
 /**
  * DefaultTyping 有四个选项
@@ -25,7 +24,7 @@ public class JacksonUtil {
         mapper.enableDefaultTyping(ObjectMapper.DefaultTyping.NON_FINAL);
     }
 
-    public static byte[] serialize(Object source) throws SerializationException {
+    public static byte[] serialize(Object source) {
 
         if (source == null) {
             return new byte[0];
@@ -34,15 +33,15 @@ public class JacksonUtil {
         try {
             return mapper.writeValueAsBytes(source);
         } catch (JsonProcessingException e) {
-            throw new SerializationException("Could not write JSON: " + e.getMessage(), e);
+            throw new RuntimeException("Could not write JSON: " + e.getMessage(), e);
         }
     }
 
-    public static Object deserialize(byte[] source) throws SerializationException {
+    public static Object deserialize(byte[] source) {
         return deserialize(source, Object.class);
     }
 
-    public static <T> T deserialize(byte[] source, Class<T> type) throws SerializationException {
+    public static <T> T deserialize(byte[] source, Class<T> type) {
         if ((source == null || source.length == 0)) {
             return null;
         }
@@ -50,7 +49,7 @@ public class JacksonUtil {
         try {
             return mapper.readValue(source, type);
         } catch (Exception ex) {
-            throw new SerializationException("Could not read JSON: " + ex.getMessage(), ex);
+            throw new RuntimeException("Could not read JSON: " + ex.getMessage(), ex);
         }
     }
 }

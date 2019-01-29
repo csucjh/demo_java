@@ -10,7 +10,7 @@ import retrofit2.Retrofit;
 
 import java.util.List;
 
-public class Main {
+public class RetrofitMain {
 
     public static void main(String[] args) {
 //        getEmployees();
@@ -55,7 +55,7 @@ public class Main {
             @Override
             public void onResponse(Call<Employee> call, Response<Employee> response) {
                 //数据请求成功
-                System.out.println(JSON.toJSONString(response.body()));
+                System.out.println(Thread.currentThread().getId() + ":" + JSON.toJSONString(response.body()));
             }
 
             @Override
@@ -64,6 +64,8 @@ public class Main {
                 System.out.println(t);
             }
         });
+
+        System.out.println(Thread.currentThread().getId() + ":main end");
     }
 
 

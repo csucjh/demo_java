@@ -33,6 +33,7 @@
         <module>hessian</module>
         <module>protobuf</module>
         <module>retrofit</module>
+        <module>maven</module>
     </modules>
 
     <properties>

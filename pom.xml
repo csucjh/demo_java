@@ -34,6 +34,7 @@
         <module>protobuf</module>
         <module>retrofit</module>
         <module>maven</module>
+        <module>design-patterns</module>
     </modules>
 
     <properties>

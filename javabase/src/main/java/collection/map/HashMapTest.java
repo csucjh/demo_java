@@ -12,7 +12,9 @@ public class HashMapTest {
 
 //        containKeyAndGetKey();
 
-        iterator();
+//        iterator();
+
+        nonRawType();
     }
 
     /**
@@ -90,5 +92,12 @@ public class HashMapTest {
             System.out.println(entry.getKey());
         }
 
+    }
+
+    private static void nonRawType() {
+        Map map = new HashMap();
+        map.put("123", "345");
+        map.put(new Object(), new Object());
+        System.out.println(map);
     }
 }

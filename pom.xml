@@ -35,6 +35,8 @@
         <module>retrofit</module>
         <module>maven</module>
         <module>design-patterns</module>
+        <module>algorithm</module>
+        <module>rmi</module>
     </modules>
 
     <properties>

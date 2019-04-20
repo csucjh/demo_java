@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+            http://www.springframework.org/schema/beans/spring-beans.xsd
+            http://www.springframework.org/schema/context    
+            http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!--
+        profile和@ActiveProfiles注解结合使用,实现不同环境的隔离，不用弄多个配置文件了
+    -->
+    <beans profile="test">
+        <context:property-placeholder location="classpath:app-one.properties"/>
+    </beans>
+
+    <beans profile="prod">
+        <context:property-placeholder location="classpath:app-two.properties"/>
+    </beans>
+
+    <beans profile="all">
+        <!--
+            等价于@TestPropertySource({"classpath:app-one.properties","classpath:app-two.properties"})
+        -->
+        <context:property-placeholder location="classpath:app-one.properties,classpath:app-two.properties"/>
+    </beans>
+</beans>

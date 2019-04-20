@@ -37,6 +37,8 @@
         <module>design-patterns</module>
         <module>algorithm</module>
         <module>rmi</module>
+        <module>junit</module>
+        <module>leetcode</module>
     </modules>
 
     <properties>
@@ -47,7 +49,7 @@
         <maven.test.skip>true</maven.test.skip> <!-- 执行打包命令时跳过单元测试 -->
 
         <!-- spring -->
-        <spring.version>4.3.11.RELEASE</spring.version>
+        <spring.version>4.3.14.RELEASE</spring.version>
 
         <!-- log-api -->
         <slf4j.version>1.7.25</slf4j.version>
@@ -73,11 +75,11 @@
 
         <httpclient.version>4.5.2</httpclient.version>
         <fastjson.version>1.2.32</fastjson.version>
+        <commons-io.version>1.4</commons-io.version>
         <commons.codec.version>1.10</commons.codec.version>
         <commons.httpclient.version>3.1</commons.httpclient.version>
         <javax.servlet-api.version>3.1.0</javax.servlet-api.version>
 
-        <!-- filter -->
         <junit.version>4.12</junit.version>
     </properties>
 
@@ -107,6 +109,11 @@
 
 
             <!-- common -->
+            <dependency>
+                <groupId>commons-io</groupId>
+                <artifactId>commons-io</artifactId>
+                <version>${commons-io.version}</version>
+            </dependency>
             <dependency>
                 <groupId>commons-collections</groupId>
                 <artifactId>commons-collections</artifactId>
@@ -154,19 +161,6 @@
                 <artifactId>javax.servlet-api</artifactId>
                 <version>${javax.servlet-api.version}</version>
                 <scope>provided</scope>
-            </dependency>
-
-            <dependency>
-                <groupId>org.springframework</groupId>
-                <artifactId>spring-test</artifactId>
-                <version>${spring.version}</version>
-                <scope>test</scope>
-            </dependency>
-            <dependency>
-                <groupId>junit</groupId>
-                <artifactId>junit</artifactId>
-                <version>${junit.version}</version>
-                <scope>test</scope>
             </dependency>
 
             <dependency>

@@ -7,6 +7,11 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class AopAspectOrderApp {
 
+    /**
+     * AbstractAspectJAdvisorFactory的findAspectJAnnotationOnMethod方法
+     * {Before.class, Around.class, After.class, AfterReturning.class, AfterThrowing.class, Pointcut.class}
+     * @param args
+     */
     public static void main(String[] args) {
         ApplicationContext context = new ClassPathXmlApplicationContext("classpath:aop-order.xml");
 

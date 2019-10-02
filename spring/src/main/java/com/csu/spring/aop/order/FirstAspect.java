@@ -20,7 +20,7 @@ public class FirstAspect {
      */
     @Before("execution(* com.csu.spring..*.*(..)) && @annotation(org.springframework.core.annotation.Order)")
     public void executionAnno(JoinPoint jp) {
-        System.out.println("aop impl before execution with annotation");
+        System.out.println("first: aop impl before execution with annotation");
     }
 
 }

@@ -5,7 +5,7 @@ import xstream.Header;
 import xstream.body.UserInfo;
 import xstream.util.XmlUtil;
 
-public class Test {
+public class XStreamTest {
     public static void main(String[] args) {
         Header header = new Header();
         header.setVersion("1.0.1");

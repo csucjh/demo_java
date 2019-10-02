@@ -21,7 +21,7 @@ public class SecondAspect {
      */
     @Before("within(com.csu.spring..*)")
     public void within(JoinPoint jp) {
-        System.out.println("aop impl before within");
+        System.out.println("second: aop impl before within");
     }
 
 }

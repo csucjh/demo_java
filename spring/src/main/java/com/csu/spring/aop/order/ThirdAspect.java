@@ -21,7 +21,7 @@ public class ThirdAspect {
      */
     @Before("execution(* com.csu.spring..*.*(..))")
     public void execution(JoinPoint jp) {
-        System.out.println("aop impl before execution");
+        System.out.println("third: aop impl before execution");
     }
 
 }

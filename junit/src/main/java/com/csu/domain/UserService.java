@@ -1,4 +1,4 @@
-package com.csu.mockito.domain;
+package com.csu.domain;
 
 import javax.annotation.Resource;
 

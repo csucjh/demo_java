@@ -1,14 +1,13 @@
 package com.csu.mockito;
 
-import com.csu.mockito.domain.Person;
-import com.csu.mockito.domain.UserDao;
-import com.csu.mockito.domain.UserService;
+import com.csu.domain.Person;
+import com.csu.domain.UserDao;
+import com.csu.domain.UserService;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.*;
 import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.AbstractJUnit4SpringContextTests;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import javax.annotation.Resource;
@@ -16,7 +15,7 @@ import javax.annotation.Resource;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("classpath:META-INF/spring/spring-context-mockito.xml")
-public class SpringMockitoVerifyTest extends AbstractJUnit4SpringContextTests {
+public class SpringMockitoVerifyTest {
 
     @Captor
     ArgumentCaptor<Person> captor;

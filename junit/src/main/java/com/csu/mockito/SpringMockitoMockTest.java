@@ -1,8 +1,8 @@
 package com.csu.mockito;
 
-import com.csu.mockito.domain.Person;
-import com.csu.mockito.domain.UserDao;
-import com.csu.mockito.domain.UserService;
+import com.csu.domain.Person;
+import com.csu.domain.UserDao;
+import com.csu.domain.UserService;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;

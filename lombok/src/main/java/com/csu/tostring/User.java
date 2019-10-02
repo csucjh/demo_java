@@ -1,22 +1,22 @@
-package com.csu.mockito.domain;
+package com.csu.tostring;
 
 import lombok.*;
 
 import java.util.List;
 
-@Builder
-@Getter
 @Setter
-@NoArgsConstructor
+@Getter
 @AllArgsConstructor
+@NoArgsConstructor
 @ToString
-public class Person {
+public class User {
 
     private int age;
 
+    private int sex;
+
     private String name;
 
-    @Singular
     private List<String> features;
 
 }

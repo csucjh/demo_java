@@ -1,4 +1,4 @@
-package com.csu.mockito.domain;
+package com.csu.domain;
 
 import javax.annotation.Resource;
 
@@ -17,5 +17,9 @@ public class UserController {
     public int getAge(Person person) {
         System.out.println("UserController getAge");
         return this.userService.getAge(person);
+    }
+
+    public void addPerson(Person person) {
+        System.out.println("UserController addPerson:" + person);
     }
 }

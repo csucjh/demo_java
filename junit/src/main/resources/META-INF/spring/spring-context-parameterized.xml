@@ -7,10 +7,4 @@
     <bean id="userController" class="com.csu.domain.UserController"/>
     <bean id="userService" class="com.csu.domain.UserService"/>
     <bean id="userDao" class="com.csu.domain.UserDao"/>
-
-    <bean id="userProxyFactory" class="org.springframework.aop.framework.ProxyFactory">
-        <property name="target" ref="userService"/>
-    </bean>
-
-    <bean id="userServiceProxy" factory-bean="userProxyFactory" factory-method="getProxy"/>
 </beans>

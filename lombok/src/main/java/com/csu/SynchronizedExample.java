@@ -3,6 +3,9 @@ package com.csu;
 import lombok.Synchronized;
 
 /**
+ *  private static final Object $LOCK = new Object[0];
+ *  private final Object $lock = new Object[0];
+ *
  * 默认情况下：
  * instance methods use $lock
  * static methods use $LOCK

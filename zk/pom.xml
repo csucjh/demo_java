@@ -9,13 +9,15 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>zkclient</artifactId>
+    <artifactId>zk</artifactId>
 
     <dependencies>
         <dependency>
             <groupId>org.apache.zookeeper</groupId>
             <artifactId>zookeeper</artifactId>
-            <version>3.4.11</version>
+            <!--<version>3.4.14</version>-->
+            <!--<version>3.5.0-alpha</version>-->
+            <version>3.5.5</version>
         </dependency>
 
         <!--<dependency>-->

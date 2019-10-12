@@ -13,7 +13,7 @@
         <module>spring-mvc</module>
         <module>file</module>
         <module>velocity</module>
-        <module>zkclient</module>
+        <module>zk</module>
         <module>security</module>
         <module>xml</module>
         <module>javabase</module>
